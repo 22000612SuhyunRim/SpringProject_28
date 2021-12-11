@@ -14,6 +14,24 @@
 		<tr><td>카테고리</td><td><input type="text" name="category"/></td></tr>
 		<tr><td>음식 이름</td><td><input type="text" name="name"/></td></tr>
 		<tr><td>유통기한</td><td><input type="date" name="expiredDate"/></td></tr>
+		<tr><td>타입</td>
+		<td>
+		<div>
+		    <input type="radio" id="choice1"
+		     name="type" value="실온">
+		    <label for="choice1">실온</label>
+		
+		    <input type="radio" id="choice2"
+		     name="type" value="냉장">
+		    <label for="choice2">냉장</label>
+		
+		    <input type="radio" id="choice3"
+		     name="type" value="냉동">
+		    <label for="choice3">냉동</label>
+	  	</div>
+	  	</td>
+	  	</tr>
+	  	
 		<tr><td>설명</td><td><textarea cols="50" rows="5" name="detail"></textarea></td></tr>
 		
 	</table>

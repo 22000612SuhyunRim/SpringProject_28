@@ -46,7 +46,7 @@
 	<th>카테고리</th>
 	<th>유통기한</th>
 	<th>추가설명</th>
-	<th>D-day</th>
+	<th>타입</th>
 	<th>등록일</th>
 	<th>수정</th>
 	<th>삭제</th>
@@ -58,7 +58,7 @@
 		<td>${u.category}</td>
 		<td>${u.expiredDate}</td>
 		<td>${u.detail}</td>
-		<td>${u.dDay}</td>
+		<td>${u.type}</td>
 		<td>${u.regdate}</td>
 		<td><a href="editform/${u.id}">글수정</a></td>
 		<td><a href="javascript:delete_ok('${u.id}')">글삭제</a></td>

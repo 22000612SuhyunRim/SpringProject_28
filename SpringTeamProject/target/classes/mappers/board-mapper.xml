@@ -3,13 +3,13 @@
 
 <mapper namespace="Board">
 	<insert id="insertBoard">
-		 insert into FoodList (category, name, expiredDate, detail)
+		 insert into FoodList (category, name, expiredDate, type, detail)
 		 values
-		 (#{category} , #{name} , #{expiredDate} , #{detail})
+		 (#{category} , #{name} , #{expiredDate} , #{type} , #{detail})
 	</insert>
 	<update id="updateBoard">
 		 update FoodList
-		 set category=#{category}, name=#{name}, expiredDate=#{expiredDate}, detail=#{detail}
+		 set category=#{category}, name=#{name}, expiredDate=#{expiredDate}, type=#{type}, detail=#{detail}
 		 where id=#{id}
 	</update>
 	<delete id="deleteBoard">
