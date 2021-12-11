@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>login</title>
 <style>
+	body {
+	}
 	img, label { display:inline-block;}
 	label{ width:130px}
 	button{ background-color:blue; color:white;font-size:15px}
