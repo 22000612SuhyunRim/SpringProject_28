@@ -15,17 +15,17 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
-	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String boardlist(Model model) {
 		model.addAttribute("list", boardService.getBoardList());
-		return "/board/list";
+		return "list";
 	}
-	@RequestMapping(value = "/board/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addPost() {
-		return "/board/addpostform";
+		return "addpostform";
 	}
 	
-	@RequestMapping(value = "/board/addok", method = RequestMethod.POST)
+	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addPostOK(BoardVO vo) {
 		int i = boardService.insertBoard(vo);
 		if(i==0) System.out.println("데이터 추가 실패");
@@ -33,14 +33,14 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "/board/editform/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
 	public String editPost(@PathVariable("id") int id, Model model) {
 		BoardVO boardVO = boardService.getBoard(id);
 		model.addAttribute("boardVO", boardVO);
-		return "/board/editform";
+		return "editform";
 	}
 	
-	@RequestMapping(value = "/board/editok", method = RequestMethod.POST)
+	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editPostOK(BoardVO vo) {
 		int i = boardService.updateBoard(vo);
 		if(i==0) System.out.println("데이터 수정 실패");
@@ -48,7 +48,7 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "/board/deleteok/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
 	public String deletePostOK(@PathVariable("id") int id) {
 		int i = boardService.deleteBoard(id);
 		if(i==0) System.out.println("데이터 삭제 실패");

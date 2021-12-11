@@ -38,6 +38,7 @@
 </head>
 <body>
 <h1>게시판</h1>
+<p>관리자 님 안녕하세요~! <a href="login/logout">로그아웃</a></p>
 <table id="list">
 <tr>
 	<th>Id</th>
