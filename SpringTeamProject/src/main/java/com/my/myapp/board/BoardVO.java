@@ -8,7 +8,7 @@ public class BoardVO {
 	private String name;
 	private Date expiredDate;
 	private String detail;
-	private int dDay;
+	private String dDay;
 	private Date regdate;
 	
 	public int getId() {
@@ -41,10 +41,10 @@ public class BoardVO {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	public int getdDay() {
+	public String getdDay() {
 		return dDay;
 	}
-	public void setdDay(int dDay) {
+	public void setdDay(String dDay) {
 		this.dDay = dDay;
 	}
 	public Date getRegdate() {
