@@ -35,17 +35,6 @@
 		var a = confirm("정말로 삭제하겠습니까?");
 		if(a) location.href='deleteok/' + id;
 	}
-	function warn(expiredDate) {
-		Date now = new Date();
-		System.out.println("into warn funtion");
-		if (now < expiredDate) {        
-	
-			alert('유통기한지남');   
-			return true;        
-		}
-		System.out.println("out warn funtion");
-		return false;
-	} 
 </script>
 </head>
 <body>
@@ -60,6 +49,7 @@
 	<th>추가설명</th>
 	<th>타입</th>
 	<th>등록일</th>
+	<th>보기</th>
 	<th>수정</th>
 	<th>삭제</th>
 </tr>
@@ -88,8 +78,9 @@
 		<td>${u.type}</td>
 		
 		<td><fmt:formatDate value="${u.regdate}" pattern="yyyy/MM/dd"/></td>
-		<td><a href="editform/${u.id}">글수정</a></td>
-		<td><a href="javascript:delete_ok('${u.id}')">글삭제</a></td>
+		<td><a href="view/${u.id}">보기</a></td>
+		<td><a href="editform/${u.id}">수정</a></td>
+		<td><a href="javascript:delete_ok('${u.id}')">삭제</a></td>
 	</tr>
 </c:forEach>
 </table>

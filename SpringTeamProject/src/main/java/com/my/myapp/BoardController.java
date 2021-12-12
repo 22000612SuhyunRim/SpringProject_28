@@ -55,4 +55,11 @@ public class BoardController {
 		else System.out.println("데이터 삭제 성공!!");
 		return "redirect:../list";
 	}
+	
+	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+	public String view(@PathVariable("id") int id, Model model) {
+		BoardVO boardVO = boardService.getBoard(id);
+		model.addAttribute("boardVO", boardVO);
+		return "view";
+	}
 }
