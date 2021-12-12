@@ -16,7 +16,9 @@
 	<table id="edit">
 		<tr><td>카테고리</td><td><form:input path="category"/></td></tr>
 		<tr><td>음식이름</td><td><form:input path="name"/></td></tr>
-		<tr><td>유통기한</td><td><form:input path="expiredDate"/></td></tr>
+		<tr><td>유통기한</td><td><form:input type="date" path="expiredDate"/></td></tr>
+		<tr><td>타입</td><td><form:input path="type"/></td></tr>
+		
 		<tr><td>설명</td><td><form:textarea cols="50" rows="5" path="detail"/></td></tr>
 	
 	</table>

@@ -19,6 +19,6 @@
 	 	select * from FoodList where id=#{id}
 	</select>
 	<select id="getBoardList" resultType="board">
-	 	select * from FoodList order by expiredDate desc
+	 	select * from FoodList order by expiredDate asc
 	</select>
 </mapper>

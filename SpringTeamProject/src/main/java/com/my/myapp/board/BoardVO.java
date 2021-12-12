@@ -2,10 +2,13 @@ package com.my.myapp.board;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class BoardVO {
 	private int id;
 	private String category;
 	private String name;
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
 	private Date expiredDate;
 	private String detail;
 	private String type;

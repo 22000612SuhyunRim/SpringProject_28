@@ -18,7 +18,7 @@
 		<td>
 		<div>
 		    <input type="radio" id="choice1"
-		     name="type" value="실온">
+		     name="type" value="실온" checked>
 		    <label for="choice1">실온</label>
 		
 		    <input type="radio" id="choice2"
