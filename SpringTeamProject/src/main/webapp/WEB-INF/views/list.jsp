@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.my.myapp.board.BoardDAO, com.my.myapp.board.BoardVO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,17 @@
 		var a = confirm("정말로 삭제하겠습니까?");
 		if(a) location.href='deleteok/' + id;
 	}
+	function warn(expiredDate) {
+		Date now = new Date();
+		System.out.println("into warn funtion");
+		if (now < expiredDate) {        
+	
+			alert('유통기한지남');   
+			return true;        
+		}
+		System.out.println("out warn funtion");
+		return false;
+	} 
 </script>
 </head>
 <body>
@@ -42,8 +54,8 @@
 <table id="list">
 <tr>
 	<th>Id</th>
-	<th>음식 이름</th>
 	<th>카테고리</th>
+	<th>음식 이름</th>
 	<th>유통기한</th>
 	<th>추가설명</th>
 	<th>타입</th>
@@ -52,14 +64,30 @@
 	<th>삭제</th>
 </tr>
 <c:forEach items="${list}" var="u">
+
 	<tr>
+	
 		<td>${u.id}</td>
-		<td>${u.name}</td>
 		<td>${u.category}</td>
-		<td>${u.expiredDate}</td>
+		<td>${u.name}</td>
+		
+		
+		<fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd" var="exDate"/>
+		<fmt:formatDate value="<%=new java.util.Date() %>" pattern="yyyy/MM/dd" var="now"/>
+			
+		<c:choose>
+			<c:when test = "${exDate <= now}">
+				<td style="color:red;"><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
+			</c:when>
+			<c:otherwise>
+				<td><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
+			</c:otherwise>
+		</c:choose>
+		
 		<td>${u.detail}</td>
 		<td>${u.type}</td>
-		<td>${u.regdate}</td>
+		
+		<td><fmt:formatDate value="${u.regdate}" pattern="yyyy/MM/dd"/></td>
 		<td><a href="editform/${u.id}">글수정</a></td>
 		<td><a href="javascript:delete_ok('${u.id}')">글삭제</a></td>
 	</tr>
