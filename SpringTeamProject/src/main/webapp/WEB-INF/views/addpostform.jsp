@@ -17,16 +17,13 @@
 		<tr><td>타입</td>
 		<td>
 		<div>
-		    <input type="radio" id="choice1"
-		     name="type" value="실온" checked>
+		    <input type="radio" id="choice1" name="type" value="실온" checked>
 		    <label for="choice1">실온</label>
 		
-		    <input type="radio" id="choice2"
-		     name="type" value="냉장">
+		    <input type="radio" id="choice2" name="type" value="냉장">
 		    <label for="choice2">냉장</label>
 		
-		    <input type="radio" id="choice3"
-		     name="type" value="냉동">
+		    <input type="radio" id="choice3" name="type" value="냉동">
 		    <label for="choice3">냉동</label>
 	  	</div>
 	  	</td>
