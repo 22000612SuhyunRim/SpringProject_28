@@ -89,46 +89,45 @@ p {
 
 <table id="list">
 <tr> 
-   <th>Id</th>
-   <th>카테고리</th> 
-   <th>음식 이름</th>
-   <th>유통기한</th>
-   <th>추가설명</th>
-   <th>타입</th>
-   <th>등록일</th>
-   <th>보기</th>
-   <th>수정</th>
-   <th>삭제</th>
+	<th>Id</th>
+	<th>카테고리</th> 
+	<th>음식 이름</th>
+	<th>유통기한</th>
+	<th>추가설명</th>
+	<th>타입</th>
+	<th>등록일</th>
+	<th>보기</th>
+	<th>수정</th>
+	<th>삭제</th>
 </tr>
 <c:forEach items="${list}" var="u">
-
    <tr>
-   
-      <td>${u.id}</td>
-      <td>${u.category}</td>
-      <td>${u.name}</td>
+	<td>${u.id}</td>
+	<td>${u.category}</td>
+	<td>${u.name}</td>
       
+	<fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd" var="exDate"/>
+	<fmt:formatDate value="<%=new java.util.Date() %>" pattern="yyyy/MM/dd" var="now"/>
+	<c:choose>
+      	<c:when test = "${exDate eq now}">
+      		<td style="color:blue;"><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
+      	</c:when>
+		<c:when test = "${exDate lt now}">
+			<td style="color:red;"><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
+		</c:when>
+		<c:otherwise>
+			<td><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
+		</c:otherwise>
+	</c:choose>
       
-      <fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd" var="exDate"/>
-      <fmt:formatDate value="<%=new java.util.Date() %>" pattern="yyyy/MM/dd" var="now"/>
-         
-      <c:choose>
-         <c:when test = "${exDate <= now}">
-            <td style="color:red;"><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
-         </c:when>
-         <c:otherwise>
-            <td><fmt:formatDate value="${u.expiredDate}" pattern="yyyy/MM/dd"/></td>
-         </c:otherwise>
-      </c:choose>
-      
-      <td>${u.detail}</td>
-      <td>${u.type}</td>
-      
-      <td><fmt:formatDate value="${u.regdate}" pattern="yyyy/MM/dd"/></td>
-      <td><a href="view/${u.id}"><input type="button" value="보기" id="view"> </a></td>
-      <td><a href="editform/${u.id}"><input type="button" value="수정" id="edit"></a></td>
-      <td><a href="javascript:delete_ok('${u.id}')"><input type="button" value="삭제" id="delete"></a></td>
-   </tr>
+	<td>${u.detail}</td>
+	<td>${u.type}</td>
+	<td><fmt:formatDate value="${u.regdate}" pattern="yyyy/MM/dd"/></td>
+	
+	<td><a href="view/${u.id}"><input type="button" value="보기" id="view"> </a></td>
+	<td><a href="editform/${u.id}"><input type="button" value="수정" id="edit"></a></td>
+	<td><a href="javascript:delete_ok('${u.id}')"><input type="button" value="삭제" id="delete"></a></td>
+</tr>
 </c:forEach>
 </table>
 </body>
