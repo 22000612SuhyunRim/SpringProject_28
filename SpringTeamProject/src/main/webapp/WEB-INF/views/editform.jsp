@@ -7,16 +7,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Form</title>
+<style>
+	body {
+		text-align: center;
+	}
+	form {
+		background-color: #ffd991;
+		border:2px solid black;
+		width: 30%;
+		height: 485px;
+		padding: 15px;
+		margin: auto;
+		margin-top: 100px;
+		line-height:44px;
+	}
+	table {
+		margin: auto;
+	}
+	#okay {
+		background-color: #ffb428;
+		border-radius: 4px;
+		padding: 5px 50px;
+		color: white;
+		font-size: 20px; 
+		border: none;
+	}
+</style>
 </head>
 <body>
 
-<h1>항목 수정</h1>
 <form:form commandName="boardVO" method="POST" action="../editok">
+	<h3>Edit</h3>
 	<form:hidden path="id" />
 	<table id="edit">
-		<tr><td>카테고리</td><td><form:input path="category"/></td></tr>
-		<tr><td>음식이름</td><td><form:input path="name"/></td></tr>
-		<tr><td>유통기한</td><td><form:input type="date" path="expiredDate"/></td></tr>
+		<tr><td>카테고리</td><td><form:input path="category" style="text-align:center; padding: 4px; width: 150px;" /></td></tr>
+		<tr><td>음식이름</td><td><form:input path="name" style="text-align:center; padding: 4px; width: 150px;" /></td></tr>
+		<tr><td>유통기한</td><td><form:input type="date" path="expiredDate" style="text-align:center; padding: 4px; width: 150px;" /></td></tr>
 		<tr><td>타입</td><td>
       	<div>
 	      	<form:radiobutton id = "choice1" path = "type" value= "실온"/>
@@ -29,11 +55,12 @@
 	      	<label for="choice3">냉동</label>
       	</div></td></tr>
 		
-		<tr><td>설명</td><td><form:textarea cols="50" rows="5" path="detail"/></td></tr>
+		<tr><td>설명</td><td><form:textarea cols="50" rows="5" path="detail" style="text-align:center; padding: 4px; width: 300px;"/></td></tr>
 	
 	</table>
-	<input type="submit" value="수정하기"/>
-	<input type="button" value="취소하기" onclick="history.back()"/>
+	<br>
+	<input type="submit" value="Edit" id="okay"/>
+	<input type="button" value="Cancel" onclick="history.back()" id="okay"/>
 </form:form>
 </body>
 </html>
